@@ -8,13 +8,15 @@
 import Foundation
 
 class MovieTableCellViewModel {
+    
+    // MARK: - Properties
     var id: Int
     var title: String
     var date: String
     var rating: String
     var imageUrl: URL?
     
-    
+    // MARK: - Initialization
     init(movies: Movie) {
         self.id = movies.id ?? 0
         self.title = movies.title ?? movies.name ?? ""
@@ -23,7 +25,8 @@ class MovieTableCellViewModel {
         self.imageUrl = makeImageURL(movies.posterPath ?? "")
     }
     
+    // MARK: - Private Methods
     private func makeImageURL(_ imageCode: String) -> URL? {
-        URL(string: "\(NetworkConstant.shared.imageServerAddress)\(imageCode)")
+        return URL(string: "\(NetworkConstant.shared.imageServerAddress)\(imageCode)")
     }
 }

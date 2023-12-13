@@ -15,19 +15,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Create the main window and set up the root view controller
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let vc = MainViewController()
-        let navigatorController = UINavigationController(rootViewController: vc)
-        window.rootViewController = navigatorController
+        let mainViewController = MainViewController()
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
+        // Set the window property and configure Kingfisher
         self.window = window
         configureKingfisher()
+        
         return true
     }
     
+    // MARK: - Configuration
+    
     func configureKingfisher() {
-        // Set your custom configuration for Kingfisher here
+        // Kingfisher configuration with options
         let kingfisherOptions: KingfisherOptionsInfo = [
             .processor(DownsamplingImageProcessor(size: CGSize(width: 200, height: 200))),
             .scaleFactor(UIScreen.main.scale),
@@ -37,4 +43,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         KingfisherManager.shared.defaultOptions = kingfisherOptions
     }
 }
-

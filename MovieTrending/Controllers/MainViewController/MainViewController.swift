@@ -30,6 +30,7 @@ class MainViewController: UIViewController {
         viewModel.getData()
     }
     
+    // MARK: - View Configuration
     func configView() {
         self.title = "Top Trending Movies"
         self.view.backgroundColor = .systemBackground
@@ -38,6 +39,7 @@ class MainViewController: UIViewController {
         self.activityIndicator.hidesWhenStopped = true
     }
     
+    // MARK: - ViewModel Binding
     private func bindViewModel() {
         viewModel.isLoading.bind({[weak self] isLoading in
             guard let self = self, let isLoading = isLoading else {return}
@@ -58,6 +60,7 @@ class MainViewController: UIViewController {
         })
     }
     
+    // MARK: - Navigation
     func openDetail(movieID: Int) {
         guard let movie = viewModel.retriveMovie(with: movieID) else {return}
         

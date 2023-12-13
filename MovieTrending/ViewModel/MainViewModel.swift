@@ -9,10 +9,12 @@ import Foundation
 
 class MainViewModel {
     
+    // MARK: - Properties
     var isLoading: Observable<Bool> = Observable(false)
     var cellDataSource: Observable<[MovieTableCellViewModel]> = Observable([])
     var dataSource: TrendingMoviesModel?
     
+    // MARK: - Data Source
     func numberOfSections() -> Int {
         1
     }
@@ -21,6 +23,7 @@ class MainViewModel {
         self.dataSource?.results?.count ?? 0
     }
     
+    // MARK: - Networking
     func getData() {
         if isLoading.value ?? true {
             return
@@ -43,11 +46,13 @@ class MainViewModel {
         })
     }
     
+    // MARK: - Data Mapping
     func mapCellData() {
         self.cellDataSource.value = self.dataSource?.results?.compactMap({MovieTableCellViewModel(movies: $0)
         })
     }
     
+    // MARK: - Helper Methods
     func getMovieTitle(_ movie: Movie) -> String {
         return movie.title ?? movie.name ?? ""
     }

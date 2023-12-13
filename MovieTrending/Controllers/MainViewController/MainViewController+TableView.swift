@@ -10,6 +10,7 @@ import UIKit
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: - Table View Setup
     func setupTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -19,16 +20,19 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         self.registerCells()
     }
     
+    // MARK: - Cell Registration
     func registerCells() {
         tableView.register(MainMovieCell.register(), forCellReuseIdentifier: MainMovieCell.identifier)
     }
     
+    // MARK: - Table View Reload
     func reloadTableView() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
+    // MARK: - Table View Data Source
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()
     }
@@ -38,13 +42,16 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainMovieCell.identifier, for: indexPath) as? MainMovieCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainMovieCell.identifier, for: indexPath) as? MainMovieCell else {
+            return UITableViewCell()
+        }
         let cellViewModel = cellDataSource[indexPath.row]
         cell.setupCell(viewModel: cellViewModel)
         cell.selectionStyle = .none
         return cell
     }
     
+    // MARK: - Table View Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
@@ -54,4 +61,3 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         self.openDetail(movieID: movieID)
     }
 }
-    

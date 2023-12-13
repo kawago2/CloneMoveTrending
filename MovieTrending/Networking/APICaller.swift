@@ -1,7 +1,9 @@
-// APICaller.swift
-// MovieTrending
 //
-// Created by Phincon on 13/12/23.
+//  APICaller.swift
+//  MovieTrending
+//
+//  Created by Phincon on 13/12/23.
+//
 
 import Foundation
 
@@ -13,6 +15,7 @@ enum NetworkError: Error {
 
 public class APICaller {
     
+    // MARK: - Trending Movies API
     static func getTrendingMovies(completionHandler: @escaping (_ result: Result<TrendingMoviesModel, NetworkError>) -> Void) {
         
         let urlString = NetworkConstant.shared.serverAddress + "trending/all/day?api_key=" + NetworkConstant.shared.apiKey
