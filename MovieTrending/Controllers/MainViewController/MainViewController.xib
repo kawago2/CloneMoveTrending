@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="MovieTrending" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="wFw-lV-hQq" id="frx-UA-1xt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,18 +19,18 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hY0-wx-lN3">
-                    <rect key="frame" x="178" y="415.66666666666669" width="37" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wFw-lV-hQq">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="hY0-wx-lN3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="U2X-Kh-RH6"/>
-                <constraint firstItem="hY0-wx-lN3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Upo-hl-eDC"/>
+                <constraint firstItem="wFw-lV-hQq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8Ld-Km-2gT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wFw-lV-hQq" secondAttribute="trailing" id="AZm-IE-0hq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wFw-lV-hQq" secondAttribute="bottom" id="Ysj-HR-fxl"/>
+                <constraint firstItem="wFw-lV-hQq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="vfO-FL-4hx"/>
             </constraints>
             <point key="canvasLocation" x="11" y="20"/>
         </view>
