@@ -21,8 +21,12 @@ class MainMovieCell: UITableViewCell {
         cardView.addBorders(color: .label, width: 1)
         cardView.roundCorners()
         movieImageView.roundCorners(5)
-        
-        
+    }
+    
+    func setupCell(viewModel: MovieTableCellViewModel) {
+        self.nameLabel.text = viewModel.title
+        self.dateLabel.text = viewModel.date
+        self.rateLabel.text = viewModel.rating
     }
  
 }
