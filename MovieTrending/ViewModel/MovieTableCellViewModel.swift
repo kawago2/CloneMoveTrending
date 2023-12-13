@@ -15,7 +15,7 @@ class MovieTableCellViewModel {
     var imageUrl: URL?
     
     
-    init(movies: Movies) {
+    init(movies: Movie) {
         self.id = movies.id ?? 0
         self.title = movies.title ?? movies.name ?? ""
         self.date = movies.releaseDate ?? movies.firstAirDate ?? ""
