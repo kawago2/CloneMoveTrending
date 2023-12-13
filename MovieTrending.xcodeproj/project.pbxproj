@@ -97,10 +97,15 @@
 		3634FEA02B29481B0098DBDF /* MovieTrending */ = {
 			isa = PBXGroup;
 			children = (
-				3634FED12B294BA30098DBDF /* MainViewController */,
+				3634FEDD2B2952DC0098DBDF /* Networking */,
+				3634FEDC2B2952CF0098DBDF /* Extensions */,
+				3634FEDB2B2952C10098DBDF /* Resources */,
+				3634FED62B29526E0098DBDF /* Classes */,
+				3634FED72B2952790098DBDF /* Model */,
+				3634FEDA2B2952A70098DBDF /* Controllers */,
+				3634FED82B29527F0098DBDF /* ViewModel */,
+				3634FED92B29528E0098DBDF /* View */,
 				3634FEA12B29481B0098DBDF /* AppDelegate.swift */,
-				3634FEAA2B29481C0098DBDF /* Assets.xcassets */,
-				3634FEAC2B29481C0098DBDF /* LaunchScreen.storyboard */,
 				3634FEAF2B29481C0098DBDF /* Info.plist */,
 			);
 			path = MovieTrending;
@@ -130,6 +135,65 @@
 				3634FED32B294BC00098DBDF /* MainViewController.xib */,
 			);
 			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		3634FED62B29526E0098DBDF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		3634FED72B2952790098DBDF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3634FED82B29527F0098DBDF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3634FED92B29528E0098DBDF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3634FEAC2B29481C0098DBDF /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3634FEDA2B2952A70098DBDF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3634FED12B294BA30098DBDF /* MainViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3634FEDB2B2952C10098DBDF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3634FEAA2B29481C0098DBDF /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3634FEDC2B2952CF0098DBDF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3634FEDD2B2952DC0098DBDF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
