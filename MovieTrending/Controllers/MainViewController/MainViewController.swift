@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     
     // MARK: - Properties
     var viewModel: MainViewModel!
-    var cellDataSource: [Movies] = []
+    var cellDataSource: [MovieTableCellViewModel] = []
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
     
     func configView() {
         self.title = "Main View"
-        self.view.backgroundColor = .red
+        self.view.backgroundColor = .systemBackground
         
         setupTableView()
         self.activityIndicator.hidesWhenStopped = true

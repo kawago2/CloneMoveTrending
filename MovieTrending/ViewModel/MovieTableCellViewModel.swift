@@ -17,7 +17,7 @@ class MovieTableCellViewModel {
     
     init(movies: Movies) {
         self.id = movies.id ?? 0
-        self.title = movies.title ?? ""
+        self.title = movies.title ?? movies.name ?? ""
         self.date = movies.releaseDate ?? movies.firstAirDate ?? ""
         self.rating = "\(movies.voteAverage ?? 0.0)/10"
         self.imageUrl = makeImageURL(movies.posterPath ?? "")
