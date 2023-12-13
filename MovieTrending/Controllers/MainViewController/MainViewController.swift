@@ -23,6 +23,11 @@ class MainViewController: UIViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getData()
+    }
+    
     func configView() {
         self.title = "Main View"
         self.view.backgroundColor = .red
