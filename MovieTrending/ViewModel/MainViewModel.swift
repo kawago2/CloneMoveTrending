@@ -22,7 +22,9 @@ class MainViewModel {
         APICaller.getTrendingMovies(completionHandler: {result in
             switch result {
             case .success(let data):
-                print("Top trend count: \(String(describing: data.results?.count))")
+                if let result = data.results {
+                    print("Top trend count: \(result.count)")
+                }
             case .failure(let err):
                 print(err)
             }
