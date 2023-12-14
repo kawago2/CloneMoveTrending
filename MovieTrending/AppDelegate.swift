@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import netfox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Create the main window and set up the root view controller
+        NFX.sharedInstance().start()
         let window = UIWindow(frame: UIScreen.main.bounds)
         let mainViewController = MainViewController()
         let navigationController = UINavigationController(rootViewController: mainViewController)

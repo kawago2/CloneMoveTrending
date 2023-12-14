@@ -25,7 +25,8 @@ public class APICaller {
             return
         }
         
-        URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
+                
+        URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
                 completionHandler(.failure(.canNotParseData))
                 print("Error: \(error)")

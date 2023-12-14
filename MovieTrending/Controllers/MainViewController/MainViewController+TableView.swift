@@ -38,7 +38,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows(in: section)
+        return viewModel.numberOfRows(in: section   )
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,6 +47,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let cellViewModel = cellDataSource[indexPath.row]
         cell.setupCell(viewModel: cellViewModel)
+        
         cell.selectionStyle = .none
         return cell
     }
@@ -58,6 +59,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movieID = cellDataSource[indexPath.row].id
-        self.openDetail(movieID: movieID)
+        self.openDetail(movieID: movieID ?? 0)
+        
     }
 }

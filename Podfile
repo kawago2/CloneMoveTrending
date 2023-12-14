@@ -8,6 +8,10 @@ target 'MovieTrending' do
   # Pods for MovieTrending
   # Package for Utils
   pod 'Kingfisher'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxGesture'
+  pod 'netfox'
 
   target 'MovieTrendingTests' do
     inherit! :search_paths

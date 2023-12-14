@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MainViewController: UIViewController {
     
@@ -14,8 +16,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
+    private let bag: DisposeBag = DisposeBag()
     var viewModel: MainViewModel!
-    var cellDataSource: [MovieTableCellViewModel] = []
+    var cellDataSource: [Movie] = []
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -41,23 +44,40 @@ class MainViewController: UIViewController {
     
     // MARK: - ViewModel Binding
     private func bindViewModel() {
-        viewModel.isLoading.bind({[weak self] isLoading in
-            guard let self = self, let isLoading = isLoading else {return}
-            
+        viewModel.cellData.asObservable().subscribe(onNext: { [weak self] movie in
+            guard let self = self, let data = movie else { return }
+            self.cellDataSource.append(contentsOf: data)
+            self.reloadTableView()
+        }).disposed(by: bag)
+        
+        viewModel.isLoading.asObservable().subscribe(onNext: {[weak self] state in
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                if isLoading {
+                if state {
                     self.activityIndicator.startAnimating()
                 } else {
                     self.activityIndicator.stopAnimating()
                 }
             }
-        })
-        
-        viewModel.cellDataSource.bind({[weak self] movies in
-            guard let self = self, let movies = movies else {return}
-            self.cellDataSource = movies
-            self.reloadTableView()
-        })
+           
+        }).disposed(by: bag)
+//        viewModel.isLoading.bind({[weak self] isLoading in
+//            guard let self = self, let isLoading = isLoading else {return}
+//
+//            DispatchQueue.main.async {
+//                if isLoading {
+//                    self.activityIndicator.startAnimating()
+//                } else {
+//                    self.activityIndicator.stopAnimating()
+//                }
+//            }
+//        })
+//
+//        viewModel.cellDataSource.bind({[weak self] movies in
+//            guard let self = self, let movies = movies else {return}
+//            self.cellDataSource = movies
+//            self.reloadTableView()
+//        })
     }
     
     // MARK: - Navigation

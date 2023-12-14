@@ -45,12 +45,13 @@ class MainMovieCell: UITableViewCell {
     }
     
     // MARK: - Cell Setup
-    func setupCell(viewModel: MovieTableCellViewModel) {
-        self.nameLabel.text = viewModel.title
-        self.dateLabel.text = viewModel.date
-        self.rateLabel.text = viewModel.rating
-        
-        self.movieImageView.kf.setImage(with: viewModel.imageUrl)
+    func setupCell(viewModel: Movie) {
+        self.nameLabel.text = viewModel.title ?? viewModel.name
+        self.dateLabel.text = viewModel.releaseDate ?? viewModel.firstAirDate
+        self.rateLabel.text = "\(viewModel.voteAverage ?? 0.0)/10"
+        guard let posterImage = viewModel.posterPath else {return}
+        let url = URL(string: NetworkConstant.shared.imageServerAddress + posterImage)
+        self.movieImageView.kf.setImage(with: url)
     }
  
 }
